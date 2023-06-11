@@ -1,6 +1,8 @@
 .places{
   display: flex;
   gap: 25px;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
 }
