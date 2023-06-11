@@ -1,0 +1,8 @@
+.place__name{
+  font-weight: 900;
+  font-size: 125%;
+  height: 25px;
+  background-color: white;
+  margin: auto 0 0 0;
+  padding: 0 0 0 10px;
+}
