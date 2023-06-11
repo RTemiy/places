@@ -1,13 +1,17 @@
 export default class Api{
-  #link;#token;
-  constructor({link, token}) {
-    this.#link = link;
-    this.#token = token;
+  #link
+  constructor(link) {
+    this.#link = link
   }
+
   getFullPage(pageName){
-    return fetch(`${this.#link}/values/${pageName}?alt=json&key=${this.#token}`,{
-    }).then(res=>{
+    return fetch(`${this.#link}?sheetName=${pageName}`,).then(res=>{
       return res.json()})
+  }
+
+  postPlace(pageName, {icon,name,description}){
+    return fetch(`${this.#link}?sheetName=${pageName}&icon=${icon}&name=${name}&description=${description}`,{
+    method: 'POST',})
   }
 
 }

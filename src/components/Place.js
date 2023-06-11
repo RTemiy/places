@@ -1,10 +1,13 @@
 export default class Place{
+
   #icon;#name;#description;#visited;
   #placeContainer= document.createElement('div');
   #placeIcon= document.createElement('p');
   #placeName= document.createElement('p');
   #placeDescription= document.createElement('p');
-  constructor({icon, name, description, visited}) {
+
+  constructor(data) {
+    const {icon, name, description, visited} = this.#formCardData(data);
     this.#icon = icon;
     this.#name = name;
     this.#description = description;
@@ -12,9 +15,18 @@ export default class Place{
     this.createPlace();
   }
 
+  #formCardData(arr) {
+    return {
+      icon: arr[0],
+      name: arr[1],
+      description: arr[2],
+      visited: arr[3],
+    }
+  }
+
   #addContent(){
     this.#placeContainer.classList.add('place');
-    if (this.#visited === 'FALSE') this.#placeContainer.classList.add('place_to-visit');
+    if (this.#visited === false) this.#placeContainer.classList.add('place_to-visit');
     this.#placeIcon.innerText = this.#icon;
     this.#placeIcon.classList.add('place__icon');
     this.#placeName.innerText = this.#name;
