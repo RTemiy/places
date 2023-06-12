@@ -2,8 +2,9 @@ import {api} from "../utils/constants";
 import Place from "../components/Place";
 import "./index.css"
 
-api.getFullPage('Main').then(res =>{res.forEach(element => new Place(element))});
-api.getFullPage('Places').then(res => res.forEach(element => new Place(element)));
+Promise.all([api.getFullPage('Main'),api.getFullPage('Custom')]).then(res =>{
+  res.forEach(block => block.forEach(element => new Place(element)));
+})
 
 const formShowButton = document.querySelector('.add-new-place');
 const formContainer = document.querySelector('.form-container');
@@ -29,8 +30,9 @@ form.addEventListener('submit', evt =>{
     description: form.description.value,
     visited: false,
   }
-  api.postPlace('Main', data).then( _ =>{
-    location.reload();
+  api.postPlace('Custom', data).then( _ =>{
+    new Place([form.icon.value,form.name.value, form.description.value,false]);
+    formContainer.classList.remove('form-container_opened');
   })
 
 })

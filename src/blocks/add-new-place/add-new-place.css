@@ -1,0 +1,18 @@
+.add-new-place{
+  position: fixed;
+  border: 0;
+  border-radius: 50%;
+  font-weight: 400;
+  bottom: 10px;
+  left: 10px;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  font-size: 250%;
+  width: 60px;
+  height: 60px;
+  background: white;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  z-index: 1;
+  cursor: pointer;
+}
