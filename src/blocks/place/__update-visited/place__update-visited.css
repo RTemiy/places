@@ -1,0 +1,11 @@
+.place__update-visited{
+  position: absolute;
+  left: 5px;
+  bottom: -25px;
+  font-size: 200%;
+  cursor: pointer;
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+}

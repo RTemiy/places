@@ -1,3 +1,3 @@
-import Api from "../components/Api";
+import GoogleAppScriptAPI from "../components/GoogleAppScriptAPI";
 
-export const api = new Api('https://script.google.com/macros/s/AKfycbw1blCVYaQDau8BNKKo1aTLwRFpfc3BBR88JF4lHygBSaFOOvJrxoJVkqKxQ6Nuq_4riA/exec');
+export const api = new GoogleAppScriptAPI('https://script.google.com/macros/s/AKfycbyp8z-inuGPon4VYktGsZUY1VZ00UucfKRGIDu4Sh-PspCDOQ-tA6R27w4BZG0iQdqmbg/exec');

@@ -1,16 +1,21 @@
 export default class Place{
 
-  #icon;#name;#description;#visited;
+  #icon;#name;#description;#visited;#row;#delete;#updateVisited;
   #placeContainer= document.createElement('div');
   #placeIcon= document.createElement('p');
   #placeName= document.createElement('p');
   #placeDescription= document.createElement('p');
+  #placeDelete= document.createElement('p');
+  #placeUpdateVisited= document.createElement('p');
 
-  constructor(data) {
+  constructor(row,data,deletePlace,updateVisited) {
     const {icon, name, description, visited} = this.#formCardData(data);
+    this.#row = row;
     this.#icon = icon;
     this.#name = name;
     this.#description = description;
+    this.#delete = deletePlace;
+    this.#updateVisited = updateVisited;
     this.#visited = visited;
     this.createPlace();
   }
@@ -33,12 +38,29 @@ export default class Place{
     this.#placeName.classList.add('place__name');
     this.#placeDescription.innerText = this.#description;
     this.#placeDescription.classList.add('place__description');
+    this.#placeDelete.innerText = '🗑';
+    this.#placeDelete.classList.add('place__delete');
+    this.#placeDelete.addEventListener('click', _ => {this.#handleDelete()})
+    this.#placeUpdateVisited.innerText = '✅';
+    this.#placeUpdateVisited.classList.add('place__update-visited');
+    this.#placeUpdateVisited.addEventListener('click', _ => {this.#handleUpdateVisited()})
+  }
+
+  #handleDelete(){
+    this.#delete(this.#row);
+    this.#placeContainer.remove();
+  }
+
+  #handleUpdateVisited(){
+    this.#updateVisited(this.#row,this.#visited = !this.#visited);
   }
 
   #addToDOM(){
     this.#placeContainer.append(this.#placeIcon);
     this.#placeContainer.append(this.#placeName);
     this.#placeContainer.append(this.#placeDescription);
+    this.#placeContainer.append(this.#placeDelete);
+    this.#placeContainer.append(this.#placeUpdateVisited);
     document.querySelector('.places').append(this.#placeContainer);
   }
 

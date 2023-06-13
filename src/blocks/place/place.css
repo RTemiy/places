@@ -14,3 +14,13 @@
   opacity: 1;
   visibility: visible;
 }
+
+.place:hover>.place__delete{
+  opacity: 1;
+  visibility: visible;
+}
+
+.place:hover>.place__update-visited{
+  opacity: 1;
+  visibility: visible;
+}

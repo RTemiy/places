@@ -8,7 +8,7 @@
   position: fixed;
   width: 100vw;
   height: 100vh;
-  z-index: 2;
+  z-index: 4;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;

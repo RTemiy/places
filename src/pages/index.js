@@ -2,8 +2,7 @@ import {api} from "../utils/constants";
 import Place from "../components/Place";
 import "./index.css"
 
-Promise.all([api.getFullPage('Main'),api.getFullPage('Custom')]).then(res =>{
-  res.forEach(block => block.forEach(element => new Place(element)));
+api.getFullPage('Main').then(res =>{ res.forEach((element,index) => new Place(index+1,element,deletePlace,updateVisited));
 })
 
 const formShowButton = document.querySelector('.add-new-place');
@@ -14,7 +13,6 @@ const formSubmitButton = form.querySelector('.form__button');
 
 formShowButton.addEventListener('click', _ =>{
   formContainer.classList.add('form-container_opened');
-  form.reset();
 });
 
 formCloseButton.addEventListener('click', _ =>{
@@ -24,15 +22,20 @@ formCloseButton.addEventListener('click', _ =>{
 form.addEventListener('submit', evt =>{
   evt.preventDefault();
   formSubmitButton.innerText = 'Сохранение...';
-  const data = {
+  api.postRequest('Main', {
     icon: form.icon.value,
     name: form.name.value,
     description: form.description.value,
     visited: false,
-  }
-  api.postPlace('Custom', data).then( _ =>{
-    new Place([form.icon.value,form.name.value, form.description.value,false]);
-    formContainer.classList.remove('form-container_opened');
+  }).then(_ =>{
+    location.reload()
   })
-
 })
+
+function deletePlace(row) {
+  api.postRequest('Main', {method: 'delete', row: row}).then(_ =>{location.reload()})
+}
+
+function updateVisited(row,value) {
+  api.postRequest('Main', {method: 'update', row: row, visited : value}).then(_ =>{location.reload()})
+}
