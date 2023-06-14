@@ -3,5 +3,6 @@
   flex-direction: row;
   gap: 5px;
   flex-wrap: wrap;
-  margin-left: 10px;
+  justify-content: flex-start;
+  margin: 0 10px;
 }

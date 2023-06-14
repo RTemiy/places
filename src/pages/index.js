@@ -8,7 +8,6 @@ const formContainer = document.querySelector('.form-container');
 const form = document.querySelector('.form');
 const formCloseButton = form.querySelector('.form__close-button');
 const formSubmitButton = form.querySelector('.form__button');
-const progressText = document.querySelector('.toolbar__progress-text');
 const progressBar = document.querySelector('.toolbar__progress-bar');
 const toolbarCategories = document.querySelector('.toolbar__categories');
 
@@ -45,9 +44,8 @@ function updateVisited(row,value) {
 function setProgress(data) {
   const completed = data.filter(el => el[3] === true).length;
   const all = data.length;
-
-  progressText.innerText = `${completed}/${all}`;
   progressBar.style.width = `${completed/all*100}%`;
+  progressBar.innerText = `${Math.floor(completed/all*100)}%`
 }
 
 function initCards(data) {
