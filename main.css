@@ -1,17 +1,25 @@
 .root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;background-image:url(images/68617f0146b28440daa3.svg);margin:0;overflow:hidden;padding:0;text-rendering:optimizeLegibility}*,.root{font-family:Inter,Arial,sans-serif}
 @font-face{font-display:swap;font-family:Inter;font-style:normal;font-weight:400;src:url(fonts/c8ba52b05a9ef10f4758.woff2) format("woff2"),url(fonts/8c206db99195777c6769.woff) format("woff")}@font-face{font-display:swap;font-family:Inter;font-style:normal;font-weight:500;src:url(fonts/293fd13dbca5a3e450ef.woff2) format("woff2"),url(fonts/9053572c46aeb4b16caa.woff) format("woff")}@font-face{font-display:swap;font-family:Inter;font-style:normal;font-weight:900;src:url(fonts/15ca31c0a2a68f76d2d1.woff2) format("woff2"),url(fonts/c6938660eec019fefd68.woff) format("woff")}
 .add-new-place{background:#fff;border:0;border-radius:50%;bottom:10px;box-shadow:0 8px 32px 0 rgba(31,38,135,.37);cursor:pointer;font-size:200%;font-weight:400;height:60px;left:10px;margin:0;padding:0;position:fixed;text-align:center;width:60px;z-index:1}
+.toolbar{align-items:center;background-color:hsla(0,0%,100%,.8);display:flex;flex-direction:row;height:70px;left:0;position:fixed;top:0;width:100%;z-index:2}
+.toolbar__categories{display:flex;flex-direction:row;flex-wrap:wrap;gap:5px;margin-left:10px}
+.toolbar__progress{border:1px solid rgba(0,0,0,.5);border-radius:10px;height:25px;margin-left:10px;overflow:hidden;width:40%}
+.toolbar__progress-bar{background-color:rgba(0,255,255,.5);border-right:1px solid rgba(0,0,0,.5);height:25px}
+.toolbar__progress-text{margin:0 0 0 10px;padding:0}
+.toolbar__category{background-color:hsla(39,77%,83%,.5);border:1px solid rgba(0,0,0,.5);border-radius:10px}
 .form-container{align-items:center;background-color:rgba(0,0,0,.3);display:flex;height:100vh;justify-content:center;left:0;opacity:0;position:fixed;top:0;transition:opacity .2s ease-in-out,visibility .2s ease-in-out;visibility:hidden;width:100vw;z-index:4}
 .form{background-color:#fff;border-radius:10px;display:flex;flex-direction:column;gap:10px;padding:20px;position:relative}
 .form-container_opened{opacity:1;visibility:visible}
 .form__button{border:0;border-radius:10px;cursor:pointer;font-size:125%;font-weight:900;padding:10px}
 .form__input{border:0;border-bottom:1px solid rgba(0,0,0,.2);font-size:115%;padding-bottom:5px}
-.form__close-button{background-color:transparent;border:0;color:#fff;cursor:pointer;font-size:500%;height:80px;position:absolute;right:-20px;text-shadow:0 0 3px #000;top:-80px;width:80px}
-.places{align-items:center;display:flex;flex-direction:row;flex-wrap:wrap;gap:25px;height:100vh;justify-content:center;margin:0;overflow:hidden;overflow-y:visible;padding:0;width:100vw}
+.form__close-button{background-color:transparent;border:0;color:#fff;cursor:pointer;font-size:500%;height:80px;position:absolute;right:-20px;top:-80px;width:80px}
+.places{align-items:center;display:flex;flex-direction:row;flex-wrap:wrap;gap:25px;height:85vh;justify-content:center;margin:0;overflow:hidden;overflow-y:visible;padding:90px 0 550px;width:100vw}
 .place{-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);background:rgba(33,255,0,.05);border-radius:10px;box-shadow:0 8px 32px 0 rgba(31,38,135,.37);display:flex;flex-direction:column;overflow:hidden;position:relative;width:250px}.place:hover>.place__delete,.place:hover>.place__description,.place:hover>.place__update-visited{opacity:1;visibility:visible}
+.place_hidden{display:none}
 .place__icon{align-self:center;font-size:500%;margin:0;padding:0}
 .place__name{background-color:hsla(0,0%,100%,.7);font-size:125%;font-weight:900;height:25px;margin:auto 0 0;padding:0 0 0 10px}
 .place__description{background-color:hsla(0,0%,100%,.8);font-weight:500;height:100%;margin:0;opacity:0;padding:10px;position:absolute;transition:opacity .2s ease-in-out,visibility .2s ease-in-out;visibility:hidden;width:100%;z-index:2}
+.place__category{display:none}
 .place_to-visit{background:rgba(255,0,0,.1)}
 .place__delete{bottom:-25px;cursor:pointer;font-size:200%;opacity:0;position:absolute;right:5px;transition:opacity .2s ease-in-out,visibility .2s ease-in-out;visibility:hidden;z-index:3}
 .place__update-visited{bottom:-25px;cursor:pointer;font-size:200%;left:5px;opacity:0;position:absolute;transition:opacity .2s ease-in-out,visibility .2s ease-in-out;visibility:hidden;z-index:3}
