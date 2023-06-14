@@ -1,8 +1,12 @@
 .toolbar__categories{
   display: flex;
-  flex-direction: row;
-  gap: 5px;
   flex-wrap: wrap;
+  gap: 5px;
+  height: 50px;
   justify-content: flex-start;
-  margin: 0 10px;
+  margin: 0 0 0 10px;
+  overflow: hidden;
+  overflow-y: visible;
+  width: 60%;
+  align-content: flex-start;
 }

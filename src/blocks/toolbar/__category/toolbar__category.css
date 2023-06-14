@@ -1,10 +1,10 @@
 .toolbar__category{
   border: 1px rgba(0, 0, 0, 0.5) solid;
-  background-color: rgba(245, 222, 179, 0.5);
+  background-color: rgba(255, 255, 255, 0.3);
   border-radius: 10px;
-  transition: color 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
 }
 
 .toolbar__category:hover{
-  background-color: white;
+  background-color: rgba(183, 183, 183, 0.5);
 }

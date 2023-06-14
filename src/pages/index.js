@@ -11,13 +11,9 @@ const formSubmitButton = form.querySelector('.form__button');
 const progressBar = document.querySelector('.toolbar__progress-bar');
 const toolbarCategories = document.querySelector('.toolbar__categories');
 
-api.getFullPage('Main').then(res =>{
-  setProgress(res);
-  initCards(res);
-  initCategories(getCategories(res));
-});
 
 formShowButton.addEventListener('click', _ =>{
+  formSubmitButton.innerText = 'Добавить';
   formContainer.classList.add('form-container_opened');
 });
 
@@ -29,16 +25,29 @@ form.addEventListener('submit', evt =>{
   evt.preventDefault();
   formSubmitButton.innerText = 'Сохранение...';
   api.postRequest('Main', getFormValues()).then(_ =>{
-    location.reload()
+    initPage().then(_ =>{
+      formContainer.classList.remove('form-container_opened');
+      form.reset();
+    });
   })
 })
 
+function initPage() {
+  return api.getFullPage('Main').then(res =>{
+    allPlaces.textContent = '';
+    toolbarCategories.textContent = '';
+    setProgress(res);
+    initCards(res);
+    initCategories(getCategories(res));
+  });
+}
+
 function deletePlace(row) {
-  api.postRequest('Main', {method: 'delete', row: row}).then(_ =>{location.reload()})
+  return api.postRequest('Main', {method: 'delete', row: row}).then(_ =>{initPage();})
 }
 
 function updateVisited(row,value) {
-  api.postRequest('Main', {method: 'update', row: row, visited : value}).then(_ =>{location.reload()})
+  return api.postRequest('Main', {method: 'update', row: row, visited : value}).then(_ =>{initPage();})
 }
 
 function setProgress(data) {
@@ -86,3 +95,5 @@ function getFormValues() {
     category : form.category.value
   }
 }
+
+initPage();

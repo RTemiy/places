@@ -52,8 +52,9 @@ export default class Place{
   }
 
   #handleDelete(){
-    this.#delete(this.#row);
-    this.#placeContainer.remove();
+    this.#delete(this.#row).then( _ =>{
+      this.#placeContainer.remove();
+    });
   }
 
   #handleUpdateVisited(){

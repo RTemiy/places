@@ -13,7 +13,6 @@ export default class GoogleAppScriptAPI {
     let allData = '';
     for(let prop in data){
       allData += `&${prop}=${data[prop]}`;
-      console.log(allData);
     }
     return fetch(`${this.#link}?sheetName=${pageName}${allData}`,{
     method: 'POST',})
