@@ -1,0 +1,7 @@
+.toolbar__categories{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-left: 10px;
+}

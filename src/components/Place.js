@@ -1,15 +1,16 @@
 export default class Place{
 
-  #icon;#name;#description;#visited;#row;#delete;#updateVisited;
+  #icon;#name;#description;#visited;#row;#delete;#updateVisited;#category
   #placeContainer= document.createElement('div');
   #placeIcon= document.createElement('p');
   #placeName= document.createElement('p');
   #placeDescription= document.createElement('p');
   #placeDelete= document.createElement('p');
   #placeUpdateVisited= document.createElement('p');
+  #placeCategory = document.createElement('p');
 
   constructor(row,data,deletePlace,updateVisited) {
-    const {icon, name, description, visited} = this.#formCardData(data);
+    const {icon, name, description, visited, category} = this.#formCardData(data);
     this.#row = row;
     this.#icon = icon;
     this.#name = name;
@@ -17,6 +18,7 @@ export default class Place{
     this.#delete = deletePlace;
     this.#updateVisited = updateVisited;
     this.#visited = visited;
+    this.#category = category;
     this.createPlace();
   }
 
@@ -26,6 +28,7 @@ export default class Place{
       name: arr[1],
       description: arr[2],
       visited: arr[3],
+      category: arr[4],
     }
   }
 
@@ -44,6 +47,8 @@ export default class Place{
     this.#placeUpdateVisited.innerText = '✅';
     this.#placeUpdateVisited.classList.add('place__update-visited');
     this.#placeUpdateVisited.addEventListener('click', _ => {this.#handleUpdateVisited()})
+    this.#placeCategory.innerText = this.#category;
+    this.#placeCategory.classList.add('place__category')
   }
 
   #handleDelete(){
@@ -61,6 +66,7 @@ export default class Place{
     this.#placeContainer.append(this.#placeDescription);
     this.#placeContainer.append(this.#placeDelete);
     this.#placeContainer.append(this.#placeUpdateVisited);
+    this.#placeContainer.append(this.#placeCategory);
     document.querySelector('.places').append(this.#placeContainer);
   }
 
