@@ -11,9 +11,9 @@
 .form-container_opened{opacity:1;visibility:visible}
 .form__button{border:0;border-radius:10px;font-size:125%;font-weight:900;padding:10px}
 .form__input{border:0;border-bottom:1px solid rgba(0,0,0,.2);font-size:115%;padding-bottom:5px}
-.form__close-button{background-color:transparent;border:0;color:#fff;cursor:pointer;font-size:500%;height:80px;position:absolute;right:-20px;top:-80px;width:80px}
+.form__close-button{background-color:transparent;border:0;color:#fff;font-size:500%;height:80px;position:absolute;right:-20px;top:-80px;width:80px}
 .places{align-items:center;display:flex;flex-direction:row;flex-wrap:wrap;gap:25px;height:85vh;justify-content:center;margin:0;overflow:hidden;overflow-y:visible;padding:90px 0 550px;width:100vw}
-.place{-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);background:rgba(33,255,0,.05);border-radius:10px;box-shadow:0 8px 32px 0 rgba(31,38,135,.37);display:flex;flex-direction:column;overflow:hidden;position:relative;width:250px}.place:hover>.place__delete,.place:hover>.place__description,.place:hover>.place__update-visited{opacity:1;visibility:visible}
+.place{-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);background:rgba(33,255,0,.05);border-radius:10px;box-shadow:0 8px 32px 0 rgba(31,38,135,.37);cursor:default;display:flex;flex-direction:column;overflow:hidden;position:relative;width:250px}.place:hover>.place__delete,.place:hover>.place__description,.place:hover>.place__update-visited{opacity:1;visibility:visible}
 .place_hidden{display:none}
 .place__icon{align-self:center;font-size:500%;margin:0;padding:0}
 .place__name{background-color:hsla(0,0%,100%,.7);font-size:125%;font-weight:900;height:25px;margin:auto 0 0;padding:0 0 0 10px}
