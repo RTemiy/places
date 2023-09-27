@@ -1,6 +1,8 @@
 @import url(../blocks/root/root.css);
 @import url(../vendor/fonts/fonts.css);
 
+@import url(../blocks/loader/loader.css);
+
 @import url(../blocks/add-new-place/add-new-place.css);
 
 @import url(../blocks/toolbar/toolbar.css);

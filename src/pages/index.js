@@ -10,6 +10,7 @@ const formCloseButton = form.querySelector('.form__close-button');
 const formSubmitButton = form.querySelector('.form__button');
 const progressBar = document.querySelector('.toolbar__progress-bar');
 const toolbarCategories = document.querySelector('.toolbar__categories');
+const loaderScreen = document.querySelector('.loader');
 
 
 formShowButton.addEventListener('click', _ =>{
@@ -24,30 +25,40 @@ formCloseButton.addEventListener('click', _ =>{
 form.addEventListener('submit', evt =>{
   evt.preventDefault();
   formSubmitButton.innerText = 'Сохранение...';
-  api.postRequest('Main', getFormValues()).then(_ =>{
+  api.postRequest('Main', getFormValues()).then( _ => {
     initPage().then(_ =>{
       formContainer.classList.remove('form-container_opened');
       form.reset();
     });
   })
-})
+});
 
 function initPage() {
-  return api.getFullPage('Main').then(res =>{
+  loaderScreen.classList.add('loader_active');
+  return api.getFullPage('Main').then( res => {
     allPlaces.textContent = '';
     toolbarCategories.textContent = '';
     setProgress(res);
     initCards(res);
     initCategories(getCategories(res));
+    loaderScreen.classList.remove('loader_active');
   });
 }
 
 function deletePlace(row) {
-  return api.postRequest('Main', {method: 'delete', row: row}).then(_ =>{initPage();})
+  loaderScreen.classList.add('loader_active');
+  return api.postRequest('Main', {method: 'delete', row: row}).then( _ => {
+    initPage();
+    loaderScreen.classList.remove('loader_active');
+  })
 }
 
 function updateVisited(row,value) {
-  return api.postRequest('Main', {method: 'update', row: row, visited : value}).then(_ =>{initPage();})
+  loaderScreen.classList.add('loader_active');
+  return api.postRequest('Main', {method: 'update', row: row, visited : value}).then( _ =>{
+    initPage();
+    loaderScreen.classList.add('loader_active');
+  })
 }
 
 function setProgress(data) {

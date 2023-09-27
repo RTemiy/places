@@ -52,7 +52,7 @@ export default class Place{
   }
 
   #handleDelete(){
-    this.#delete(this.#row).then( _ =>{
+    this.#delete(this.#row).then( _ => {
       this.#placeContainer.remove();
     });
   }
