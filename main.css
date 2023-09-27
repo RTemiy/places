@@ -1,5 +1,6 @@
 .root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;background-image:url(images/68617f0146b28440daa3.svg);margin:0;overflow:hidden;padding:0;text-rendering:optimizeLegibility}*,.root{font-family:Inter,Arial,sans-serif}
 @font-face{font-display:swap;font-family:Inter;font-style:normal;font-weight:400;src:url(fonts/c8ba52b05a9ef10f4758.woff2) format("woff2"),url(fonts/8c206db99195777c6769.woff) format("woff")}@font-face{font-display:swap;font-family:Inter;font-style:normal;font-weight:500;src:url(fonts/293fd13dbca5a3e450ef.woff2) format("woff2"),url(fonts/9053572c46aeb4b16caa.woff) format("woff")}@font-face{font-display:swap;font-family:Inter;font-style:normal;font-weight:900;src:url(fonts/15ca31c0a2a68f76d2d1.woff2) format("woff2"),url(fonts/c6938660eec019fefd68.woff) format("woff")}
+.loader{background:hsla(0,0%,100%,.8);height:100%;left:0;opacity:0;position:absolute;top:0;transition:all .3s ease-in-out;visibility:hidden;width:100%;z-index:10}.loader_active{opacity:1;visibility:visible}
 .add-new-place{background:#fff;border:0;border-radius:50%;bottom:10px;box-shadow:0 8px 32px 0 rgba(31,38,135,.37);font-size:200%;font-weight:400;height:60px;left:10px;margin:0;padding:0;position:fixed;text-align:center;width:60px;z-index:1}
 .toolbar{align-items:center;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);background-color:hsla(0,0%,100%,.5);box-shadow:0 2px 2px 0 rgba(0,0,0,.4);display:flex;flex-direction:row;left:0;position:fixed;top:0;width:100%;z-index:2}
 .toolbar__categories{align-content:flex-start;display:flex;flex-wrap:wrap;gap:5px;height:50px;justify-content:flex-start;margin:0 0 0 10px;overflow:hidden;overflow-y:visible;width:60%}
@@ -17,7 +18,7 @@
 .place_hidden{display:none}
 .place__icon{align-self:center;font-size:500%;margin:0;padding:0;-webkit-user-select:none;-moz-user-select:none;user-select:none}
 .place__name{background-color:hsla(0,0%,100%,.7);font-size:125%;font-weight:900;height:25px;margin:auto 0 0;padding:0 0 0 10px}
-.place__description{background-color:hsla(0,0%,100%,.8);font-weight:500;height:100%;margin:0;opacity:0;padding:10px;position:absolute;transition:opacity .2s ease-in-out,visibility .2s ease-in-out;visibility:hidden;width:100%;z-index:2}
+.place__description{background-color:hsla(0,0%,100%,.8);font-weight:500;height:100%;margin:0;max-width:235px;opacity:0;padding:10px;position:absolute;transition:opacity .2s ease-in-out,visibility .2s ease-in-out;visibility:hidden;width:100%;z-index:2}
 .place__category{display:none}
 .place_to-visit{background:rgba(255,0,0,.1)}
 .place__delete{bottom:-25px;font-size:200%;opacity:0;position:absolute;right:5px;transition:opacity .2s ease-in-out,visibility .2s ease-in-out;visibility:hidden;z-index:3}
