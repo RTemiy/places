@@ -1,9 +1,8 @@
 export default class Place{
-
   #icon;#name;#description;#visited;#row;#delete;#updateVisited;#category
   #placeContainer= document.createElement('div');
   #placeIcon= document.createElement('p');
-  #placeName= document.createElement('p');
+  #placeName= document.createElement('a');
   #placeDescription= document.createElement('p');
   #placeDelete= document.createElement('p');
   #placeUpdateVisited= document.createElement('p');
@@ -38,6 +37,8 @@ export default class Place{
     this.#placeIcon.innerText = this.#icon;
     this.#placeIcon.classList.add('place__icon');
     this.#placeName.innerText = this.#name;
+    this.#placeName.href = `https://www.google.com/search?q=${this.#category.replace(' ', '+')}+${this.#name.replace(' ', '+')}`;
+    this.#placeName.target = '_blank';
     this.#placeName.classList.add('place__name');
     this.#placeDescription.innerText = this.#description;
     this.#placeDescription.classList.add('place__description');

@@ -1,3 +1,10 @@
 .place_to-visit{
   background: rgba(255, 0, 0, 0.1);
 }
+
+@media (prefers-color-scheme: dark) {
+  .place_to-visit{
+    background: rgba(255, 0, 0, 0.25);
+  }
+
+}

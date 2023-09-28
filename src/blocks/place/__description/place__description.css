@@ -12,3 +12,9 @@
   visibility: hidden;
   transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
 }
+
+@media (prefers-color-scheme: dark) {
+  .place__description{
+    background-color: rgba(115, 115, 115, 0.95);
+  }
+}

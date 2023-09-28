@@ -11,3 +11,9 @@
   align-items: center;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.4);
 }
+
+@media (prefers-color-scheme: dark) {
+  .toolbar{
+    background-color: rgba(112, 112, 112, 0.5);
+  }
+}

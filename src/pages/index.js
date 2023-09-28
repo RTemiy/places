@@ -13,20 +13,20 @@ const toolbarCategories = document.querySelector('.toolbar__categories');
 const loaderScreen = document.querySelector('.loader');
 
 
-formShowButton.addEventListener('click', _ =>{
+formShowButton.addEventListener('click', _ => {
   formSubmitButton.innerText = 'Добавить';
   formContainer.classList.add('form-container_opened');
 });
 
-formCloseButton.addEventListener('click', _ =>{
+formCloseButton.addEventListener('click', _ => {
   formContainer.classList.remove('form-container_opened');
 });
 
-form.addEventListener('submit', evt =>{
+form.addEventListener('submit', evt => {
   evt.preventDefault();
   formSubmitButton.innerText = 'Сохранение...';
-  api.postRequest('Main', getFormValues()).then( _ => {
-    initPage().then(_ =>{
+  api.postRequest('Main', getFormValues()).then(_ => {
+    initPage().then(_ => {
       formContainer.classList.remove('form-container_opened');
       form.reset();
     });
@@ -35,7 +35,7 @@ form.addEventListener('submit', evt =>{
 
 function initPage() {
   loaderScreen.classList.add('loader_active');
-  return api.getFullPage('Main').then( res => {
+  return api.getFullPage('Main').then(res => {
     allPlaces.textContent = '';
     toolbarCategories.textContent = '';
     setProgress(res);
@@ -47,15 +47,15 @@ function initPage() {
 
 function deletePlace(row) {
   loaderScreen.classList.add('loader_active');
-  return api.postRequest('Main', {method: 'delete', row: row}).then( _ => {
+  return api.postRequest('Main', {method: 'delete', row: row}).then(_ => {
     initPage();
     loaderScreen.classList.remove('loader_active');
   })
 }
 
-function updateVisited(row,value) {
+function updateVisited(row, value) {
   loaderScreen.classList.add('loader_active');
-  return api.postRequest('Main', {method: 'update', row: row, visited : value}).then( _ =>{
+  return api.postRequest('Main', {method: 'update', row: row, visited: value}).then(_ => {
     initPage();
     loaderScreen.classList.add('loader_active');
   })
@@ -64,12 +64,12 @@ function updateVisited(row,value) {
 function setProgress(data) {
   const completed = data.filter(el => el[3] === true).length;
   const all = data.length;
-  progressBar.style.width = `${completed/all*100}%`;
-  progressBar.innerText = `${Math.floor(completed/all*100)}%`
+  progressBar.style.width = `${completed / all * 100}%`;
+  progressBar.innerText = `${Math.floor(completed / all * 100)}%`
 }
 
 function initCards(data) {
-  data.forEach((element,index) => new Place(index+1,element,deletePlace,updateVisited));
+  data.forEach((element, index) => new Place(index + 1, element, deletePlace, updateVisited));
 }
 
 function getCategories(data) {
@@ -78,19 +78,19 @@ function getCategories(data) {
   return [...allData];
 }
 
-function initCategories(data){
-  data.forEach(el=>{
+function initCategories(data) {
+  data.forEach(el => {
     const element = document.createElement('button');
     element.innerText = el;
     element.classList.add('toolbar__category');
-    element.addEventListener('click', _ =>{
+    element.addEventListener('click', _ => {
       showCategory(el);
     });
     toolbarCategories.append(element);
   })
 }
 
-function showCategory(category){
+function showCategory(category) {
   allPlaces.querySelectorAll('.place').forEach(el => {
     if (el.querySelector('.place__category').innerText === category) el.classList.remove('place_hidden');
     else el.classList.add('place_hidden');
@@ -103,7 +103,7 @@ function getFormValues() {
     name: form.name.value,
     description: form.description.value,
     visited: false,
-    category : form.category.value
+    category: form.category.value
   }
 }
 
