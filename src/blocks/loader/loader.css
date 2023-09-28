@@ -11,6 +11,12 @@
   z-index: 10;
 }
 
+@media (prefers-color-scheme: dark) {
+  .loader{
+    background: rgba(37, 36, 36, 0.8);
+  }
+}
+
 .loader_active{
   opacity: 1;
   visibility: visible;
