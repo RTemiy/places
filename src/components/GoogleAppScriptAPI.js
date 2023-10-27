@@ -15,7 +15,7 @@ export default class GoogleAppScriptAPI {
       allData += `&${prop}=${data[prop]}`;
     }
     return fetch(`${this.#link}?sheetName=${pageName}${allData}`,{
-    method: 'POST',})
+    method: 'POST',
+    })
   }
-
 }
